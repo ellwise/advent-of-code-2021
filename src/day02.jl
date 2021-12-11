@@ -1,10 +1,11 @@
 filename = replace(basename(@__FILE__), ".jl" => "")
 filepath = joinpath(@__DIR__, "data/", filename, "input")
+input = readlines(filepath)
 
 # part 1
 
 let h = 0, d = 0
-    for line = readlines(filepath)
+    for line = input
         cmd, val = split(line, " ")
         x = parse(Int, val)
         if cmd == "forward"
@@ -22,7 +23,7 @@ end
 # part 2
 
 let a = 0, h = 0, d = 0
-    for line = readlines(filepath)
+    for line = input
         cmd, val = split(line, " ")
         x = parse(Int, val)
         if cmd == "forward"

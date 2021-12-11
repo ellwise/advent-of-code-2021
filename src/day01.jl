@@ -1,8 +1,10 @@
-filepath = joinpath(@__DIR__, "data/day01/input")
+filename = replace(basename(@__FILE__), ".jl" => "")
+filepath = joinpath(@__DIR__, "data/", filename, "input")
+input = readlines(filepath)
 
 # part 1
 
-measurements = parse.(Int, readlines(filepath))
+measurements = parse.(Int, input)
 single_differences = diff(measurements)
 part_1_answer = sum(single_differences .> 0)
 println(part_1_answer)
